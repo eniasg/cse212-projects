@@ -13,7 +13,18 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // Step 1 - Create result array of specified length
+        double[] multiples = new double[length];
+
+        // Step 2 - Generate multiples using loop
+        for (int i = 0; i < length; i++)
+        {
+            // Calculate the (i+1)-th multiple
+            multiples[i] = number * (i + 1);
+        }
+        
+        // Step 3: Return populated array
+        return multiples; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +40,18 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // Step 1 - If amount equals list count, list remains unchanged
+        if (amount == data.Count)
+            return;
+    
+        // Step 2 - Extract last 'amount' element
+        List<int> rightPart = data.GetRange(data.Count - amount, amount);
+    
+        // Step 3 - Remove those elements from original positions
+        data.RemoveRange(data.Count - amount, amount);
+    
+        // Step 4: Insert extracted elements at the front
+        data.InsertRange(0, rightPart);
     }
 }
